@@ -1,5 +1,5 @@
 const PRODUCTS=[{sku:'CC-DARK70',name:'Dark Chocolate 70%',description:'ดาร์กช็อกโกแลตเข้ม 70% หอมโกโก้ รสลึกและสมดุล',price:159,image:'assets/images/dark.svg'},{sku:'CC-MILK',name:'Creamy Milk Chocolate',description:'มิลค์ช็อกโกแลตเนื้อเนียน หวานละมุน เหมาะกับทุกวัย',price:129,image:'assets/images/milk.svg'}];
-const API_URL=''; // ใส่ URL Google Apps Script Web App ที่ README อธิบาย
+const API_URL='https://script.google.com/macros/s/AKfycbx632_o5R4z93W-6nwJ9VZpHHhcgai_6Qk_UNYwouCfS5CaAkGoYb1nyGKk_vON72X_/exec';
 let cart=JSON.parse(localStorage.getItem('cacao-cart')||'{}');
 function money(n){return n.toLocaleString('th-TH')+' ฿'}
 function renderProducts(){document.getElementById('products-grid').innerHTML=PRODUCTS.map(p=>`<article class="product"><img src="${p.image}" alt="${p.name}"><div class="product-info"><h3>${p.name}</h3><p>${p.description}</p><div class="price">${money(p.price)}</div><button class="btn" onclick="add('${p.sku}')">เพิ่มลงตะกร้า</button></div></article>`).join('')}
